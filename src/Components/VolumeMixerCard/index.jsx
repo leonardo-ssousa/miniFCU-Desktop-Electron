@@ -27,7 +27,7 @@ function VolumeMixerCard() {
     <VolumeMixerCardWrapper>
       {
         openModal &&
-        <AddAppModal isOpen={openModal} setIsOpen={setOpenModal}/>
+        <AddAppModal isOpen={openModal} setIsOpen={setOpenModal} title={"Adicionar"}/>
       }
       <div className="card-header">
         <h1>Volume Mixer</h1>

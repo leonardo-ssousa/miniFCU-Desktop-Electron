@@ -3,7 +3,7 @@ import { AddAppModalWrapper } from "./style";
 import { IoClose } from "react-icons/io5";
 import axios from "axios";
 
-function AddAppModal({ isOpen, setIsOpen, processValue, friendlyValue }) {
+function AddAppModal({ isOpen, setIsOpen, processValue, friendlyValue, title, hideDescription }) {
 
   const [inputFriendlyName, setInputFriendlyName] = useState("");
   const [itensList, setItensList] = useState();
@@ -34,7 +34,7 @@ function AddAppModal({ isOpen, setIsOpen, processValue, friendlyValue }) {
     isOpen &&
     <AddAppModalWrapper>
       <section className="modal-wrapper">
-        <h2>Adicionar:</h2>
+        <h2>{title + ":"}</h2>
         <div className="closeBtn" onClick={() => setIsOpen(false)}><IoClose /></div>
         <label htmlFor="app">Selecione o app:</label>
         <select name="app" id="process-input" defaultValue={"sad"} >
@@ -49,7 +49,10 @@ function AddAppModal({ isOpen, setIsOpen, processValue, friendlyValue }) {
           <label htmlFor="friendlyName" className="input-counter">{`${inputFriendlyName.length} / 16`}</label>
           <input type="text" name="friendlyName" defaultValue={friendlyValue} maxLength={16} onChange={(e) => setInputFriendlyName(e.target.value)} />
         </section>
-        <p>O app só irá aparecer na lista se estiver emitindo algum som. Ex.: Inicie um video no navegador para que ele seja detectado.</p>
+        {
+          hideDescription == undefined &&
+          <p>O app só irá aparecer na lista se estiver emitindo algum som. Ex.: Inicie um video no navegador para que ele seja detectado.</p>
+        }
         <button onClick={saveNewProcess}>Adicionar</button>
       </section>
     </AddAppModalWrapper>

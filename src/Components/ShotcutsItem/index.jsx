@@ -11,16 +11,14 @@ function ShotcutsItem({name, ledIsOn, selectedKey}) {
     axios({
       method: "get",
       url: "http://localhost:8085/buttonslist"      
-    }).then(res => {
-      //console.log(typeof( res.data))      
+    }).then(res => {   
 
       let keysListRequest = []
       Object.keys(res.data).map(key => {
         keysListRequest.push(key)
       })
 
-      setKeysList(keysListRequest);
-      
+      setKeysList(keysListRequest);      
     })
   }, []);
 
@@ -28,7 +26,6 @@ function ShotcutsItem({name, ledIsOn, selectedKey}) {
 
   return ( 
     <ShotcutsItemWrapper>
-      {console.log(keysList)}
       <p>{name + ":"}</p>
       <section>
         <Dropdown itens={keysList} currentValue={selectedKey}/>

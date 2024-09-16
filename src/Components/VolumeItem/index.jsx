@@ -31,7 +31,7 @@ function VolumeItem({id, process, name, pid}) {
           <BsPencilFill />
         </section>
       }
-      <AddAppModal isOpen={modalIsOPen} setIsOpen={setModalIsOPen} friendlyValue={name} processValue={process}/>
+      <AddAppModal isOpen={modalIsOPen} setIsOpen={setModalIsOPen} friendlyValue={name} processValue={process} title={"Editar"} hideDescription/>
     </VolumeItemWrapper>
    );
 }

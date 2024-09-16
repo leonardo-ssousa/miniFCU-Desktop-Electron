@@ -4,15 +4,21 @@ import { IoChevronDown } from "react-icons/io5"
 
 
 
-function Dropdown({itens, currentValue}) {
+function Dropdown({itens, currentValue, onChange}) {
 
   const [selected, setSelected] = useState(currentValue != undefined ? currentValue : itens[0]);
   //console.log(currentValue);
   const dropRef = useRef()
   const dropItensRef = useRef()
 
+  useEffect(() => {
+    console.log("mudou");
+    setSelected(currentValue)
+  }, [currentValue]);
+
   const changeSelected = (index) => {
     setSelected(itens[index])
+    onChange(itens[index])
   }
 
   const showList = () => {
@@ -22,7 +28,6 @@ function Dropdown({itens, currentValue}) {
   const hideList = () => {
     dropItensRef.current.classList.add("hide")
   }
-  
 
   return ( 
     <DropdownWrapper className="Dropdown" onMouseEnter={showList} onMouseLeave={hideList} ref={dropRef}>
