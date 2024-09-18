@@ -1,5 +1,14 @@
 # miniFCU Desktop - Electon + React
 
+![image](https://github.com/user-attachments/assets/145537fa-bd57-419a-a342-85b9aebaf141)
+
+- Linguagem: JS
+- Framework: Electron + React
+- Objetivo: Realizar as configurações e alterações do servidor local miniFCU
+
+<br><br>
+
+----
 
 ### ✏️ A Fazer
 - [ ] OnChange nos botões de atalho para alterar no servidor
