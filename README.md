@@ -15,7 +15,7 @@
 - [ ] Atualizar lista de apps salvos após salvar um novo app
 
 
-### 📙
+### 📙 Feito:
 
 - ✅ Tela de Add App puxa os apps abertos no pc
 - ✅ Tela de Add Salva o novo app com o Friendly Name no servidor
