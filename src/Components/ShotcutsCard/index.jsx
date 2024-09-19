@@ -23,6 +23,7 @@ function ShotcutsCard() {
       method: "get",
       url: "http://localhost:8085/getshortcutgroups"
     }).then(res => {
+      console.log(res.data);
       setShortcutsGroups(res.data)
     })
   }
@@ -33,7 +34,7 @@ function ShotcutsCard() {
     axios({
       method: "get",
       url: `http://localhost:8085/getshortcutgroup?groupname=${groupName}`,
-    }).then(res => {    
+    }).then(res => {          
       setCurrentGroupKeys(res.data)
     })
   }

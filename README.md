@@ -11,11 +11,14 @@
 ----
 
 ### ✏️ A Fazer
-- [ ] Atualizar lista de apps salvos após salvar um novo app
-
+- [ ] Criar modal para criação de novo grupo de atalhos
+- [ ] Modal atualizar o atalho atual para o novo criado
+- [ ] Corrigir: Trazer o nome correto do grupo de atalhos
+- [ ] Alterar dropdows para input, facilitando encontrar a tecla.
 
 ### 📙 Feito:
 
+- ✅ Atualizar lista de apps salvos após salvar um novo app
 - ✅ OnChange nos botões de atalho para alterar no servidor
 - ✅ Tela de Add App puxa os apps abertos no pc
 - ✅ Tela de Add Salva o novo app com o Friendly Name no servidor
