@@ -11,12 +11,12 @@
 ----
 
 ### ✏️ A Fazer
-- [ ] OnChange nos botões de atalho para alterar no servidor
 - [ ] Atualizar lista de apps salvos após salvar um novo app
 
 
 ### 📙 Feito:
 
+- ✅ OnChange nos botões de atalho para alterar no servidor
 - ✅ Tela de Add App puxa os apps abertos no pc
 - ✅ Tela de Add Salva o novo app com o Friendly Name no servidor
 - ✅ Dropdown dos botões buscam os botões permitidos para ser usado como atalho
