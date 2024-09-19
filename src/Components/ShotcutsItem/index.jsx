@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Dropdown from "../Dropdown";
 import { ShotcutsItemWrapper, LedStatus } from "./styles";
 import axios from "axios";
+import { ShortcutContext } from "../ShotcutsCard";
 
 function ShotcutsItem({name, ledIsOn, selectedKey}) {
 
   const [keysList, setKeysList] = useState([]);
+  const [currentGroup] = useContext(ShortcutContext)
 
   useEffect(() => {
     axios({
@@ -22,13 +24,29 @@ function ShotcutsItem({name, ledIsOn, selectedKey}) {
     })
   }, []);
 
-  // ["A","B","C","D","E","F","G","H","I","J","K"]
+  function changeShortcutButtonHandle(keyToPress){
+
+    axios({
+      method: "get",
+      url: `http://localhost:8085/setshortcutbutton?groupname=${currentGroup}&buttonname=${name}&keytopress=${keyToPress}`
+    }).then(res => {
+      console.log(res.data);
+      
+    })
+
+    // console.log("groupName: " + currentGroup);
+    // console.log("buttonName: " + name);
+    // console.log("keyToPress: " + keyToPress);
+    
+  }
+
 
   return ( 
     <ShotcutsItemWrapper>
+      {}
       <p>{name + ":"}</p>
       <section>
-        <Dropdown itens={keysList} currentValue={selectedKey}/>
+        <Dropdown itens={keysList} currentValue={selectedKey} onChange={changeShortcutButtonHandle}/>
         <LedStatus haveled={ledIsOn}/>
       </section>
       {ledIsOn != undefined &&

@@ -12,7 +12,6 @@ function Dropdown({itens, currentValue, onChange}) {
   const dropItensRef = useRef()
 
   useEffect(() => {
-    console.log("mudou");
     setSelected(currentValue)
   }, [currentValue]);
 
