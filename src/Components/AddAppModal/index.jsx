@@ -3,7 +3,7 @@ import { AddAppModalWrapper } from "./style";
 import { IoClose } from "react-icons/io5";
 import axios from "axios";
 
-function AddAppModal({ isOpen, setIsOpen, processValue, friendlyValue, title, hideDescription }) {
+function AddAppModal({ isOpen, setIsOpen, processValue, friendlyValue, title, hideDescription, callBack }) {
 
   const [inputFriendlyName, setInputFriendlyName] = useState("");
   const [itensList, setItensList] = useState();
@@ -27,6 +27,7 @@ function AddAppModal({ isOpen, setIsOpen, processValue, friendlyValue, title, hi
     }).then((res) => {
       console.log(res);
     })
+    callBack && callBack()
     setIsOpen(false)    
   }
 
