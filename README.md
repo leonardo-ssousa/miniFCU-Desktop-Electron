@@ -11,10 +11,10 @@
 ----
 
 ### ✏️ A Fazer
+- [ ] Alterar dropdows para input, facilitando encontrar a tecla.
 - [ ] Criar modal para criação de novo grupo de atalhos
 - [ ] Modal atualizar o atalho atual para o novo criado
 - [ ] Corrigir: Trazer o nome correto do grupo de atalhos
-- [ ] Alterar dropdows para input, facilitando encontrar a tecla.
 
 ### 📙 Feito:
 
