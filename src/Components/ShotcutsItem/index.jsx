@@ -32,12 +32,7 @@ function ShotcutsItem({name, ledIsOn, selectedKey}) {
     }).then(res => {
       console.log(res.data);
       
-    })
-
-    // console.log("groupName: " + currentGroup);
-    // console.log("buttonName: " + name);
-    // console.log("keyToPress: " + keyToPress);
-    
+    })    
   }
 
 
