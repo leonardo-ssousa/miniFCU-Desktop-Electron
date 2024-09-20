@@ -3,6 +3,7 @@ import Dropdown from "../Dropdown";
 import { ShotcutsItemWrapper, LedStatus } from "./styles";
 import axios from "axios";
 import { ShortcutContext } from "../ShotcutsCard";
+import InputDropDown from "../InputDropDown";
 
 function ShotcutsItem({name, ledIsOn, selectedKey}) {
 
@@ -41,7 +42,8 @@ function ShotcutsItem({name, ledIsOn, selectedKey}) {
       {}
       <p>{name + ":"}</p>
       <section>
-        <Dropdown itens={keysList} currentValue={selectedKey} onChange={changeShortcutButtonHandle}/>
+        {/* <Dropdown itens={keysList} currentValue={selectedKey} onChange={changeShortcutButtonHandle}/> */}
+        <InputDropDown itens={keysList} currentValue={selectedKey} />
         <LedStatus haveled={ledIsOn}/>
       </section>
       {ledIsOn != undefined &&

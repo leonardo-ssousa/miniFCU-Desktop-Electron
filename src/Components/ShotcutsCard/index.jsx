@@ -60,13 +60,13 @@ function ShotcutsCard() {
             currentGroupKeys != undefined ?
             <>
               <ShotcutsItem selectedKey={currentGroupKeys.cima} name={"Cima"}  />
-              <ShotcutsItem selectedKey={currentGroupKeys.baixo} name={"Baixo"} />
+              {/* <ShotcutsItem selectedKey={currentGroupKeys.baixo} name={"Baixo"} />
               <ShotcutsItem selectedKey={currentGroupKeys.centro} name={"Centro"}/>
               <ShotcutsItem selectedKey={currentGroupKeys.hdr} name={"HDR"} />
               <ShotcutsItem selectedKey={currentGroupKeys.apr} name={"APR"} />
               <ShotcutsItem selectedKey={currentGroupKeys.nav} name={"NAV"} />
               <ShotcutsItem selectedKey={currentGroupKeys.vs}  name={"VS"}  />
-              <ShotcutsItem selectedKey={currentGroupKeys.ap}  name={"AP"}  />
+              <ShotcutsItem selectedKey={currentGroupKeys.ap}  name={"AP"}  /> */}
             </> :
             <>
             <ShotcutsItem selectedKey={"-"} name={"Cima"}  />
