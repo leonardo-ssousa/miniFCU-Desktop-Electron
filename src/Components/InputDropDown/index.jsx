@@ -10,6 +10,7 @@ function InputDropDown({ itens, currentValue, onChange }) {
   const [filtredList, setFiltredList] = useState("");
 
   useEffect(() => {
+    inputComp.current.classList.remove("alert")
     inputComp.current.value = currentValue
   }, [currentValue]);
 
