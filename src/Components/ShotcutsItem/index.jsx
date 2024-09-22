@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import Dropdown from "../Dropdown";
 import { ShotcutsItemWrapper, LedStatus } from "./styles";
 import axios from "axios";
 import { ShortcutContext } from "../ShotcutsCard";
@@ -42,9 +41,7 @@ function ShotcutsItem({name, ledIsOn, selectedKey}) {
       {}
       <p>{name + ":"}</p>
       <section>
-        {/* <Dropdown itens={keysList} currentValue={selectedKey} onChange={changeShortcutButtonHandle}/> */}
-        <InputDropDown itens={keysList} currentValue={selectedKey} />
-        <LedStatus haveled={ledIsOn}/>
+        <InputDropDown itens={keysList} currentValue={selectedKey} onChange={changeShortcutButtonHandle}/>
       </section>
       {ledIsOn != undefined &&
         <section>

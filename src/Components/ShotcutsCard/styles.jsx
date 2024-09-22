@@ -49,7 +49,8 @@ export const ShotcutsCardWrapper = styled.div`
   & > .card-content{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 12px;
+    row-gap: 12px;
+    column-gap: 18px;
     margin-bottom: 16px;
   }
 

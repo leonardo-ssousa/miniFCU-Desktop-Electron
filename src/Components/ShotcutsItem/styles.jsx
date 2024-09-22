@@ -5,16 +5,18 @@ export const ShotcutsItemWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4px;
-
+  width: 100%;
+  
   & > p{
     font-size: 8pt;
     font-weight: 500;
   }
-
+  
   & > section{
     display: flex;
     align-items: center;
     gap: 8px;
+    width: 100%;
 
     & > p{
       font-size: 8pt;

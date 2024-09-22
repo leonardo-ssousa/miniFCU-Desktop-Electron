@@ -3,7 +3,8 @@ export const lightTheme = {
   textColor: "#1E1E1E",
   primaryBG: "#fbfbfb",
   secondaryBG: "#f3f3f3",
-  shadow: "#DFE3F3"
+  shadow: "#DFE3F3",
+  alert: "#ff5326"
 }
 
 export const darkTheme = {
@@ -11,5 +12,6 @@ export const darkTheme = {
   textColor: "#FFFFFF",
   primaryBG: "#2a2a2a",
   secondaryBG: "#202020",
-  shadow: "#0a080867"
+  shadow: "#0a080867",
+  alert: "#a72d19"
 }
