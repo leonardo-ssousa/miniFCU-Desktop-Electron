@@ -7,6 +7,7 @@ export const DropdownWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  height: 32px;
 
   background-color: ${props => props.theme.primaryBG};
   border: 1px solid ${props => props.theme.secondaryBG};
@@ -56,7 +57,7 @@ export const DropdownWrapper = styled.div`
     left: 0;
     transform: translateY(-32px);
     
-    background-color: ${props => props.theme.primaryBG};
+    background-color: ${props => props.theme.secondaryBG};
     border: 1px solid ${props => props.theme.secondaryBG};
     border-radius: 6px;
 
@@ -72,7 +73,7 @@ export const DropdownWrapper = styled.div`
       font-weight: 600;
 
       &:hover{
-        background-color: ${props => props.theme.secondaryBG};
+        background-color: ${props => props.theme.primaryBG};
       }
     }    
   }

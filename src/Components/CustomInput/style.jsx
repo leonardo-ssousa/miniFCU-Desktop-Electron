@@ -31,6 +31,10 @@ export const CustomInputWrapper = styled.div`
       border-bottom: 2px solid ${props => props.theme.principalColor};
     }
   }
+
+  & > .alert{
+    border-bottom: 2px solid ${props => props.theme.alert};
+  }
   
   & > .title{
     position: absolute;

@@ -44,9 +44,10 @@ export const AddAppModalWrapper = styled.div`
     }
 
     & > label{
-      font-size: 10pt;
+      font-size: 9pt;
       margin-top: 16px;
       margin-bottom: 4px;
+      margin-left: 4px;
     }
     
     & > select{

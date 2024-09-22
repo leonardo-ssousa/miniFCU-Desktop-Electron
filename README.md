@@ -11,12 +11,13 @@
 ----
 
 ### ✏️ A Fazer
-- [ ] Modal atualizar o atalho atual para o novo criado
+
 - [ ] Corrigir: Trazer o nome correto do grupo de atalhos
-- [ ] Corrigir: Dropdown do Modal Novo App para o stilo do app
 
 ### 📙 Feito:
 
+- ✅ Corrigir: Dropdown do Modal Novo App para o stilo do app
+- ✅ Modal atualizar o atalho atual para o novo criado
 - ✅ Criar modal para criação de novo grupo de atalhos
 - ✅ Alterar dropdows para input, facilitando encontrar a tecla.
 - ✅ Atualizar lista de apps salvos após salvar um novo app

@@ -13,8 +13,10 @@ function ShotcutsCard() {
 
   const [shortcutsGroups, setShortcutsGroups] = useState();
   const [currentGroupKeys, setCurrentGroupKeys] = useState();
-  const [currentGroup, setCurrentGroup] = useState();
-  const [isOpenModal, setIsOpenModal] = useState(true);
+  const [currentGroup, setCurrentGroup] = useState("Default");
+
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [newGroupName, setNewGroupName] = useState();
 
   useEffect(() => {
     getShortcutsGroups()
@@ -42,6 +44,24 @@ function ShotcutsCard() {
     })
   }
 
+  function createNewGroup() {  
+    if(newGroupName){
+      axios({
+        method: "get",
+        url: `http://localhost:8085/createshortcutgroup?groupname=${newGroupName}`
+      }).then(res => {
+        if(res.status == 200){
+          getShortcutsGroups()
+          setCurrentGroup(newGroupName.replace(" ", ""))
+          currentGroupHandle(newGroupName.replace(" ", ""))
+          setIsOpenModal(false)
+        }        
+      })
+    } else {
+      console.log("Invalid group name")    
+    }
+  }
+
   return ( 
     <ShortcutContext.Provider value={[currentGroup]}>
 
@@ -51,7 +71,7 @@ function ShotcutsCard() {
           <div className="drop">
             {
               shortcutsGroups &&
-              <Dropdown itens={shortcutsGroups} currentValue={"Default"} onChange={currentGroupHandle}/>
+              <Dropdown itens={shortcutsGroups} currentValue={currentGroup} onChange={currentGroupHandle}/>
             }
           </div>
           <div className="add-btn" onClick={() => setIsOpenModal(true)}>
@@ -90,8 +110,8 @@ function ShotcutsCard() {
             <section className="modal-container">              
               <div className="closeBtn" onClick={() => setIsOpenModal(false)}><IoClose /></div>
               <h2>Grupo de atalhos:</h2>
-              <CustomInput name={"Nome do novo grupo"} maxLength={16}/>
-              <button onClick={"setIsOpenModal(false)"}>Adicionar</button>
+              <CustomInput name={"Nome do novo grupo"} maxLength={16} onChange={e => setNewGroupName(e.value)} Required/>
+              <button onClick={e => createNewGroup()}>Adicionar</button>
             </section>
           </Modal>
         }

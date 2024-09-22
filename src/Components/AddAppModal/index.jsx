@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AddAppModalWrapper } from "./style";
 import { IoClose } from "react-icons/io5";
+import Dropdown from "../Dropdown"
 import axios from "axios";
 import CustomInput from "../CustomInput";
 
@@ -8,6 +9,7 @@ function AddAppModal({ isOpen, setIsOpen, processValue, friendlyValue, title, hi
 
   const [inputFriendlyName, setInputFriendlyName] = useState("");
   const [itensList, setItensList] = useState();
+  const [currentSelectedProcess, setCurrentSelectedProcess] = useState(processValue);
 
   useEffect(() => {
     axios({
@@ -15,21 +17,26 @@ function AddAppModal({ isOpen, setIsOpen, processValue, friendlyValue, title, hi
       url: "http://localhost:8085/openprocesslist",
       responseType: "json"
     }).then((res) => {
-      setItensList(res.data);
+
+      let processList = []
+      res.data.map(item => {
+        processList.push(item.process)
+      })
+
+      setItensList(processList);
     })
   }, []);
 
-  function saveNewProcess() {
-    let process = document.querySelector("#process-input").value
-
+  function saveNewProcess() {    
     axios({
       method: "get",
-      url: `http://localhost:8085/savenewapp?processname=${process}&friendlyname=${inputFriendlyName}`,
+      url: `http://localhost:8085/savenewapp?processname=${currentSelectedProcess}&friendlyname=${inputFriendlyName}`,
     }).then((res) => {
-      console.log(res);
+      //console.log(res);
     })
     callBack && callBack()
-    setIsOpen(false)    
+    setIsOpen(false)
+    
   }
 
   return (
@@ -39,18 +46,14 @@ function AddAppModal({ isOpen, setIsOpen, processValue, friendlyValue, title, hi
         <h2>{title + ":"}</h2>
         <div className="closeBtn" onClick={() => setIsOpen(false)}><IoClose /></div>
         <label htmlFor="app">Selecione o app:</label>
-        <select name="app" id="process-input" defaultValue={"sad"} >
-          {
-            itensList && processValue == undefined ?
-              itensList.map(item => <option key={item.process} value={item.process}>{item.process}</option>) : 
-              itensList && processValue != undefined ? <option value={processValue}>{processValue}</option> : <option value="loading">Carregando...</option>
-          }
-        </select>
+
+        {
+          itensList && processValue == undefined?
+          <Dropdown itens={itensList} onChange={setCurrentSelectedProcess} /> : 
+          processValue != undefined ? <Dropdown itens={itensList} currentValue={processValue} /> : <Dropdown itens={itensList} currentValue={"Carregando..."} />
+        }
         <section className="friendly-container">
-          <CustomInput name={"Nome amigável"} maxLength={16} onChange={e => setInputFriendlyName(e.value)}/>
-          {/* <label htmlFor="friendlyName">Nome amigável:</label>
-          <label htmlFor="friendlyName" className="input-counter">{`${inputFriendlyName.length} / 16`}</label>
-          <input type="text" name="friendlyName" defaultValue={friendlyValue} maxLength={16} onChange={(e) => setInputFriendlyName(e.target.value)} /> */}
+          <CustomInput name={"Nome amigável"} maxLength={16} onChange={e => setInputFriendlyName(e.value)} defaultValue={friendlyValue}/>
         </section>
         {
           hideDescription == undefined &&

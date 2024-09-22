@@ -1,14 +1,22 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CustomInputWrapper } from "./style";
 
-function CustomInput({ name, maxLength, onChange, defaultValue}) {
+function CustomInput({ name, maxLength, onChange, defaultValue, Required}) {
 
   const [inputValue, setInputValue] = useState("");
   const inputRef = useRef()
 
   function onChangeHandle(){
     setInputValue(inputRef.current.value)
-    onChange(inputRef.current)
+    try {
+      onChange(inputRef.current)      
+    } catch (error) {}
+  }
+
+  function isRequired(){    
+    if(Required){
+      inputRef.current.value ? inputRef.current.classList.remove("alert") : inputRef.current.classList.add("alert")
+    }
   }
 
   return (
@@ -20,7 +28,8 @@ function CustomInput({ name, maxLength, onChange, defaultValue}) {
         placeholder=" " 
         maxLength={maxLength} 
         onChange={() => onChangeHandle()}
-        defaultValue={defaultValue}/>
+        defaultValue={defaultValue}
+        onBlur={isRequired}/>
 
       <label htmlFor="new-input" className="title">{name}</label>
       {
