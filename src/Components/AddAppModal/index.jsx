@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AddAppModalWrapper } from "./style";
 import { IoClose } from "react-icons/io5";
 import axios from "axios";
+import CustomInput from "../CustomInput";
 
 function AddAppModal({ isOpen, setIsOpen, processValue, friendlyValue, title, hideDescription, callBack }) {
 
@@ -46,9 +47,10 @@ function AddAppModal({ isOpen, setIsOpen, processValue, friendlyValue, title, hi
           }
         </select>
         <section className="friendly-container">
-          <label htmlFor="friendlyName">Nome amigável:</label>
+          <CustomInput name={"Nome amigável"} maxLength={16} onChange={e => setInputFriendlyName(e.value)}/>
+          {/* <label htmlFor="friendlyName">Nome amigável:</label>
           <label htmlFor="friendlyName" className="input-counter">{`${inputFriendlyName.length} / 16`}</label>
-          <input type="text" name="friendlyName" defaultValue={friendlyValue} maxLength={16} onChange={(e) => setInputFriendlyName(e.target.value)} />
+          <input type="text" name="friendlyName" defaultValue={friendlyValue} maxLength={16} onChange={(e) => setInputFriendlyName(e.target.value)} /> */}
         </section>
         {
           hideDescription == undefined &&

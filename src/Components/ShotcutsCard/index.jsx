@@ -2,8 +2,10 @@ import axios from "axios";
 import Dropdown from "../Dropdown";
 import ShotcutsItem from "../ShotcutsItem";
 import { ShotcutsCardWrapper } from "./styles";
-import { IoAddOutline } from "react-icons/io5"
+import { IoAddOutline, IoClose } from "react-icons/io5"
 import { createContext, useEffect, useState } from "react";
+import Modal from "../Modal";
+import CustomInput from "../CustomInput";
 
 export const ShortcutContext = createContext()
 
@@ -12,6 +14,7 @@ function ShotcutsCard() {
   const [shortcutsGroups, setShortcutsGroups] = useState();
   const [currentGroupKeys, setCurrentGroupKeys] = useState();
   const [currentGroup, setCurrentGroup] = useState();
+  const [isOpenModal, setIsOpenModal] = useState(true);
 
   useEffect(() => {
     getShortcutsGroups()
@@ -51,7 +54,7 @@ function ShotcutsCard() {
               <Dropdown itens={shortcutsGroups} currentValue={"Default"} onChange={currentGroupHandle}/>
             }
           </div>
-          <div className="add-btn">
+          <div className="add-btn" onClick={() => setIsOpenModal(true)}>
               <IoAddOutline />
             </div>
         </div>
@@ -80,6 +83,18 @@ function ShotcutsCard() {
             </>
           }
         </main>
+
+        {
+          isOpenModal &&
+          <Modal>
+            <section className="modal-container">              
+              <div className="closeBtn" onClick={() => setIsOpenModal(false)}><IoClose /></div>
+              <h2>Grupo de atalhos:</h2>
+              <CustomInput name={"Nome do novo grupo"} maxLength={16}/>
+              <button onClick={"setIsOpenModal(false)"}>Adicionar</button>
+            </section>
+          </Modal>
+        }
       </ShotcutsCardWrapper>
     </ShortcutContext.Provider>
    );

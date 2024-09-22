@@ -54,4 +54,59 @@ export const ShotcutsCardWrapper = styled.div`
     margin-bottom: 16px;
   }
 
+  & .modal-container{
+
+    background-color: ${props => props.theme.primaryBG};
+    padding: 32px;
+    border-radius: 8px;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+
+    & > h2{
+      margin-bottom: 24px;
+    }
+
+    
+
+
+    & > button{
+      margin-top: 24px;
+      padding: 12px;
+      color: white;
+      font-size: 10pt;
+      font-weight: 500;
+      border-radius: 6px;
+      border: none;
+      background-color: ${props => props.theme.principalColor};
+      cursor: pointer;
+
+      &:active{
+        background-color: ${props => props.theme.principalColor};
+        filter: brightness(.9);
+      }
+    }
+
+    & > .closeBtn{
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13pt;
+      border-radius: 50%;
+
+      position: absolute;
+      right: 32px;
+      top: 32px;
+      cursor: pointer;
+
+      &:hover{
+        background-color: ${props => props.theme.secondaryBG};
+      }
+    }
+  }
+
 `

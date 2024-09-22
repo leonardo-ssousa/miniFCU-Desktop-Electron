@@ -43,7 +43,7 @@ export const AddAppModalWrapper = styled.div`
       }
     }
 
-    & label{
+    & > label{
       font-size: 10pt;
       margin-top: 16px;
       margin-bottom: 4px;

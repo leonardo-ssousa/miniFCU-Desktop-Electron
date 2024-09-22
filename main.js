@@ -9,7 +9,7 @@ const openServer = () =>{
         console.log(error);
         
       }
-      console.log(stdout);
+      //console.log(stdout);
     })
 }
 
@@ -23,6 +23,7 @@ const createWindow = () => {
     maxWidth: 600,
     resizable: true,
     autoHideMenuBar: true,
+    icon: "C:/Users/leona/OneDrive/Documentos/Projeto MiniFCU 2024/Desktop App - Electron/src/assets/Icon_miniFCU.png",
   })
 
   win.loadURL("http://localhost:5173")
